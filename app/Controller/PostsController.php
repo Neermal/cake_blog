@@ -68,7 +68,7 @@ public function delete($id) {
 
     if ($this->Post->delete($id)) {
         $this->Session->setFlash(
-            __('The post with id: %s has been deleted.', h($id))
+            __('The post with id: %s has been deleted.', ($id))
         );
         return $this->redirect(array('action' => 'index'));
     }
@@ -79,7 +79,7 @@ public function delete($id) {
 	///////////////////////////////
 	public function isAuthorized($user) {
     // All registered users can add posts
-    if ($this->action === 'add') {
+    if ($this->action == 'add') {
         return true;
     }
 
