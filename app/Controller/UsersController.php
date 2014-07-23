@@ -1,10 +1,36 @@
 <?php
 class UsersController extends AppController {
 
+public function login() {
+    if ($this->request->is('post')) {
+        if ($this->Auth->login()) {
+            return $this->redirect($this->Auth->redirect());
+        }else{
+		$this->Session->setFlash(__('Invalid username or password, try again'));
+		}
+		
+        
+    }
+}
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add', 'logout');
     }
+
+	public function isAuthorized($user){
+	if($user['role'] == 'admin'){
+	return true;
+	}
+	
+	if (in_array($this->action, array('edit', 'delete'))){
+	
+	if ($user['id'] != $this->request->params['pass'][0]){
+	return false;
+	}
+	}
+	return true;
+	}
 
     public function index() {
         $this->User->recursive = 0;
@@ -50,6 +76,10 @@ class UsersController extends AppController {
             unset($this->request->data['User']['password']);
         }
     }
+	
+	public function posts(){
+	return $this->redirect(array('action' => 'index'));
+	}
 
     public function delete($id = null) {
         $this->request->onlyAllow('post');
@@ -66,14 +96,7 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 	
-	public function login() {
-    if ($this->request->is('post')) {
-        if ($this->Auth->login()) {
-            return $this->redirect($this->Auth->redirect());
-        }
-        $this->Session->setFlash(__('Invalid username or password, try again'));
-    }
-}
+	//////////////////////////////////////////
 
 public function logout() {
     return $this->redirect($this->Auth->logout());
