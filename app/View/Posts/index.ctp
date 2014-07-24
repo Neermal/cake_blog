@@ -25,8 +25,7 @@
         </td>
         <td>
             <?php
-                echo $this->Form->postLink(
-                    'Delete',
+                echo $this->Form->postLink('Delete',
                     array('action' => 'delete', $post['Post']['id']),
                     array('confirm' => 'Are you sure?')
                 );
