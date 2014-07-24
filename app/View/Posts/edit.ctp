@@ -7,4 +7,9 @@ echo $form->input('title');
 echo $form->input('body');
 echo $form->input('id', array('type' => 'hidden'));
 echo $form->end('Edit Post');
+
+//echo $form->end('Edit Post');
+
+
+
 ?>
