@@ -23,3 +23,10 @@ INSERT INTO `posts` (`id`, `title`, `body`, `created`, `modified`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+IcakephAlTAAZbL
+
+https://Neermal@icakephp.scm.azurewebsites.net:443/Icakephp.git
+https://Neermal@caker.scm.azurewebsites.net:443/cakeR.git
